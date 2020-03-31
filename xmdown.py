@@ -58,7 +58,7 @@ def getSign():
 def parseTitle(t):
     out = "".join(t.split())
     out2 = out.replace('\t', '')
-    out3 = re.sub('[\t\r()/]', '', out2)
+    out3 = re.sub('[\t\r()/|]', '', out2)
     out4 = regex.sub(ur"\p{P}+", "", out3)
     #out3 = re.sub(string.punctuation, '', out2)
     #out4 = re.sub('\W+', '', out3)
@@ -128,7 +128,7 @@ def getM4a(path):
             break
         if not os.path.exists( '%s%s.m4a' % (path, parseTitle(s['title']))):
             print u'\n(%d/%d)正在下载:\t%s' % (i, total,s['title'])
-            wget.download(s['url'], out = '%s%s.m4a' % (path, parseTitle(s['title'])))
+            #wget.download(s['url'], out = '%s%s.m4a' % (path, parseTitle(s['title'])))
         else:
             print u'\n%s 已下载过' %   parseTitle(s['title'])
     return
