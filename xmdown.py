@@ -128,7 +128,7 @@ def getM4a(path):
             break
         if not os.path.exists( '%s%s.m4a' % (path, parseTitle(s['title']))):
             print u'\n(%d/%d)正在下载:\t%s' % (i, total,s['title'])
-            #wget.download(s['url'], out = '%s%s.m4a' % (path, parseTitle(s['title'])))
+            wget.download(s['url'], out = '%s%s.m4a' % (path, parseTitle(s['title'])))
         else:
             print u'\n%s 已下载过' %   parseTitle(s['title'])
     return
